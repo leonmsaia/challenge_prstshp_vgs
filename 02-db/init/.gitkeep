@@ -1,0 +1,3 @@
+# Esta carpeta puede contener scripts SQL de inicialización
+# Los archivos .sql en esta carpeta se ejecutarán automáticamente al crear el contenedor
+
