@@ -1,0 +1,255 @@
+@use "sass:map";
+/* HEADER STYLES */
+
+$teal-color: #328189;
+
+.l-header {
+  margin: 0 0 map.get($spacers, 3);
+}
+
+.header-top-bar {
+  background-color: #F6C544;
+  padding: 0.75rem 0;
+  font-size: 0.875rem;
+  font-weight: 400;
+
+  &__left {
+    color: #000;
+  }
+
+  &__right {
+    color: #000;
+  }
+
+  &__contact {
+    color: #000;
+    
+    a {
+      color: #000;
+      text-decoration: none;
+      
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__shipping {
+    font-weight: 500;
+    color: #000;
+  }
+
+  #contact-link {
+    margin: 0;
+    color: #000;
+
+    a {
+      color: #000;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.header-nav-main {
+  background-color: $teal-color;
+  min-height: 50px;
+
+  .main-menu {
+    &__dropdown {
+      background-color: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      
+      @include media-breakpoint-up(md) {
+        height: 100%;
+      }
+    }
+
+    &__item-link--top {
+      color: #fff;
+      padding: 1rem 1.5rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 1rem;
+      white-space: nowrap;
+
+      &:hover,
+      &:focus {
+        color: #fff;
+        background-color: rgba(255, 255, 255, 0.1);
+        text-decoration: none;
+      }
+    }
+
+    &__item--top {
+      display: flex;
+      align-items: center;
+      height: 100%;
+    }
+  }
+}
+
+.header-breadcrumb {
+  background-color: #e3f2fd;
+  padding: 0.75rem 0;
+  border-bottom: none;
+
+  .breadcrumb {
+    margin-bottom: 0;
+    background-color: transparent;
+    padding: 0;
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .breadcrumb-item {
+    color: #1976d2;
+    
+    + .breadcrumb-item::before {
+      content: ">";
+      padding: 0 0.5rem;
+      color: #1976d2;
+    }
+    
+    a {
+      color: #1976d2;
+      text-decoration: none;
+      
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    
+    &.active {
+      color: #424242;
+    }
+  }
+}
+
+.header-search {
+  background: $white;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid $border-color;
+
+  &__logo-col {
+    display: flex;
+    align-items: center;
+  }
+
+  &__logo {
+    display: block;
+    max-width: 200px;
+    
+    img {
+      max-height: 50px;
+      width: auto;
+      height: auto;
+    }
+  }
+
+  &__search-col {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__icons-col {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  &__icons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    .header-top__block {
+      margin: 0;
+    }
+
+    .header-top__block--user,
+    .header-top__block--cart {
+      display: block;
+    }
+  }
+}
+
+.header-top {
+  background: $white;
+  border-bottom: 1px solid $border-color;
+  padding: 1rem 0;
+
+  &__user-icons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__row {
+    flex-wrap: nowrap;
+    align-items: center;
+    @include media-breakpoint-up(md) {
+      flex-wrap: wrap;
+    }
+
+  }
+
+  &__link {
+    display: block;
+    padding: map.get($spacers, 1);
+    color: $gray-700;
+    text-decoration: none;
+    border-radius: $border-radius;
+
+    @include media-breakpoint-up(sm) {
+      padding: map.get($spacers, 2);
+    }
+
+    @include hover-focus() {
+      color: $black;
+      text-decoration: none;
+      background: $gray-100;
+    }
+  }
+
+  &__icon-container {
+    position: relative;
+  }
+
+  &__icon {
+    display: block;
+    font-size: rem-calc(26px);
+    @include media-breakpoint-up(sm) {
+      font-size: rem-calc(32px);
+    }
+  }
+
+  &__badge {
+    position: absolute;
+    top: -0.5em;
+    right: -0.2em;
+    width: 2em;
+    height: 2em;
+    font-size: rem-calc(8px);
+    font-weight: 700;
+    line-height: 2em;
+    color: $white;
+    text-align: center;
+    background: $primary;
+    border-radius: 50%;
+  }
+
+  &__block {
+    &--search {
+      @include media-breakpoint-down(sm) {
+        flex-grow: 0;
+      }
+    }
+  }
+}

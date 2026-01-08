@@ -1,0 +1,6 @@
+@use "sass:map";
+
+.l-footer {
+  padding-top: map.get($spacers, 5);
+  margin-top: auto;
+}

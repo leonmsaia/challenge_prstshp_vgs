@@ -1,0 +1,139 @@
+@use "sass:map";
+
+.product-miniature {
+  $self: &;
+
+  // Estilo de tarjeta según referencia CAUDALIE
+  background-color: #f8f9fa; // Fondo blanco con ligero tinte azul-gris claro
+  border: 1px solid #e3e8eb; // Borde delgado azul-gris claro
+  border-radius: 4px;
+  padding: 1rem;
+  transition: box-shadow 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  // Imagen centrada
+  &__thumb {
+    background-color: $white;
+    border-radius: 4px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+
+    &-link {
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      object-fit: contain;
+      border-radius: 0;
+    }
+  }
+
+  // Título del producto
+  &__title {
+    $number-of-lines: 2;
+    $line-height: 1.4;
+    height: #{$number-of-lines * $line-height}em;
+    overflow: hidden;
+    line-height: $line-height;
+    margin-bottom: 0.5rem;
+
+    h2,
+    h3,
+    h5 {
+      font-size: 0.95rem;
+      font-weight: 400;
+      color: $gray-900;
+      margin: 0;
+      line-height: $line-height;
+    }
+
+    a {
+      color: $gray-900;
+      text-decoration: none;
+
+      &:hover {
+        color: $gray-900;
+        text-decoration: none;
+      }
+    }
+  }
+
+  // Precios
+  &__pricing {
+    margin: 0 0 0.75rem;
+    text-align: left;
+
+    .price {
+      font-size: 0.95rem;
+      font-weight: 400;
+      color: $gray-900;
+      display: inline-block;
+
+      &--regular {
+        color: $gray-500;
+        text-decoration: line-through;
+        font-size: 0.85rem;
+        margin-right: 0.25rem;
+      }
+    }
+  }
+
+  // Botón añadir al carrito - oculto según referencia
+  &__actions {
+    display: none;
+  }
+
+  // Botón de vista rápida - mantener
+  &__functional-btn {
+    position: absolute;
+    right: map.get($spacers, 2);
+    bottom: map.get($spacers, 2);
+    z-index: 2;
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
+    line-height: 2rem;
+    border: 0;
+    @include font-size(18px);
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 50%;
+    opacity: 0.9;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &--top {
+      top: map.get($spacers, 2);
+      bottom: auto;
+    }
+  }
+
+  &__functional-btn-icon {
+    font-size: inherit;
+    line-height: inherit;
+  }
+
+  &--smaller {
+    .price,
+    #{$self}__title {
+      @include font-size(15px);
+    }
+
+    #{$self}__pricing {
+      margin: 0;
+    }
+  }
+}
