@@ -1,5 +1,35 @@
+<<<<<<< HEAD
 node_modules
 .DS_Store
 assets
 .env
 dependencies
+=======
+# Prestashop core
+01-prestashop/app/*
+
+# Except theme falcon
+!01-prestashop/app/themes/
+01-prestashop/app/themes/*
+!01-prestashop/app/themes/falcon/
+
+# Runtime
+vendor/
+cache/
+upload/
+img/
+admin*/
+modules/
+
+# Env
+.env
+.env.*
+
+# Node
+node_modules/
+npm-debug.log
+
+# OS
+.DS_Store
+Thumbs.db
+>>>>>>> master
